@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""
-Defines lazy_matrix function
-"""
-import numpy
-
+import numpy as np
 
 def lazy_matrix_mul(m_a, m_b):
-    """ calculates the matrix multiplication of two matrices"""
-    return numpy.matmul(m_a, m_b)
+    try:
+        result = np.dot(np.array(m_a), np.array(m_b))
+        return result.tolist()
+    except ValueError as e:
+        raise ValueError("Matrices cannot be multiplied") from e
